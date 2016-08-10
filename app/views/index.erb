@@ -1,0 +1,16 @@
+<h2>Welcome to your recipes! </h2>
+
+<% if @delete_recipe %>
+  <p style="font-size: 28px; color: red"><%= @delete_recipe %></p>
+<% end %>
+
+<a href="/recipes/new">To Create a new recipe click here</a>
+
+<h2>All Recipes: </h2>
+
+<% @recipes.each do |recipe| %>
+  <h3><%= recipe.name  %></h3>
+  <hr>
+  <p><%= recipe.content %></p>
+  <p></p>
+<% end %>

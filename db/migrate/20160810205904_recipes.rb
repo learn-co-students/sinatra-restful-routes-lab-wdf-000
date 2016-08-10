@@ -3,7 +3,7 @@ class Recipes < ActiveRecord::Migration
     create_table :recipes do |col|
       col.string :name
       col.text :ingredients
-      col.time :cook_time
+      col.string :cook_time
     end
   end
 end
