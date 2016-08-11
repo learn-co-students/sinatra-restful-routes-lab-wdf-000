@@ -10,7 +10,6 @@
 
 <% @recipes.each do |recipe| %>
   <h3><%= recipe.name  %></h3>
+  <a href="/recipes/<%= recipe.id %>">Show recipe</a>
   <hr>
-  <p><%= recipe.content %></p>
-  <p></p>
 <% end %>
