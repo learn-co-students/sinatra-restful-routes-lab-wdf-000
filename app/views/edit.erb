@@ -1,0 +1,10 @@
+<h2>The Recipe Editor for Gyro Gearloose</h2>
+<form method="POST" action="/recipes/<%=@recipe.id%>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <h4>Recipe:</h4>
+  <p><input type="text" name="name" id="name" value="<%=@recipe.name%>"</p>
+  <h4>Mess up the ingredients, now won't you!</h4>
+  <p><input type="text" name="ingredients" id="ingredients" value="<%=@recipe.ingredients%>"></p>
+  <p>Cook time:<input type="text" name="cook_time" id="cook_time" value="<%=@recipe.cook_time%>"></p>
+  <p><input type="submit" value="submit"></p>
+</form>
