@@ -7,25 +7,25 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
+
+  get '/recipes/new' do #loads new form
+    erb :new
+  end
   
-  get '/recipes' do
+  get '/recipes' do #loads index page
     @recipes = Recipe.all
     erb :index
   end
 
 
-  get '/recipes/new' do 
-    erb :new
-  end
-
-  post '/recipes' do
+  post '/recipes' do #creates a recipe
     # create and save
     # redirect to show
     @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  get '/recipes/:id' do 
+  get '/recipes/:id' do  #loads show page
     @recipe = Recipe.find_by_id(params[:id])
     erb :show
   end
@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
 
-  patch '/recipes/:id' do # edit action
+  patch '/recipes/:id' do # updatea a recipe
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
@@ -45,7 +45,9 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  delete '/recipes/:id/delete' do
+  delete '/recipes/:id/delete' do #delete action
+    # @recipe = Recipe.find_by_id(params[:id])
+    # @recipe.delete
     Recipe.delete(params[:id])
     redirect to "/recipes"
   end
