@@ -9,6 +9,7 @@ gem 'tux'
 gem 'rake'
 gem 'require_all'
 
+
 group :test do
   gem 'rspec'
   gem 'pry'
@@ -16,4 +17,12 @@ group :test do
   gem 'capybara'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end
+
+group :development do
+  gem "sqlite3"
+  gem "pry"
+  gem "shotgun"
+  gem "tux"
+  gem "capybara"
 end
