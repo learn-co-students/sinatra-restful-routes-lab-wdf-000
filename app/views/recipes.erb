@@ -1,0 +1,6 @@
+<%@recipes.each do |recipe|%>
+<%=recipe.name%>
+<%=recipe.ingredients%>
+<%=recipe.cook_time%>
+<p>URL: /recipes/<%=recipe.id%></p>
+<%end%>
